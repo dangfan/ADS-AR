@@ -69,6 +69,13 @@ public class Program {
 				double rate = user.times(item.transpose()).get(0, 0);
 				t.add(new Pair(i + 1, rate));
 			}
+			Collections.sort(t);
+			StringBuilder sb = new StringBuilder();
+			sb.append((lastu + 1) + ",");
+			for (int j = 0; j != 5; ++j)
+				sb.append(t.elementAt(j).id + ";");
+			sb.setCharAt(sb.length() - 1, '\n');
+			fw.write(sb.toString());
 			fw.close();
 		} catch (Exception e) {
 			e.printStackTrace();
