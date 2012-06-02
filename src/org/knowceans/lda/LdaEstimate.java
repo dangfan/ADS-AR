@@ -209,18 +209,4 @@ public class LdaEstimate {
 		
 		return corpus;
 	}
-
-	/**
-	 * main
-	 */
-	public static void main(String[] args) {
-		if (args.length < 4) {
-			System.out.println("usage\n: lda <initial alpha> <k> <data> <directory>");
-			return;
-		}
-		lda(Float.parseFloat(args[0]),
-				Integer.parseInt(args[1]),
-				args[2],
-				args[3]);
-	}
 }

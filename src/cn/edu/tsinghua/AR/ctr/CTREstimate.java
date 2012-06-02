@@ -377,10 +377,4 @@ public class CTREstimate {
 		
 	}
 
-	public static void main(String[] args) {
-//		ctr(null, 1.0, 0.01, 0.01, 100,
-//				200, 200, 1, 50, "data/a.csv");
-//		U.times(V.transpose()).print(5, 5);
-	}
-
 }

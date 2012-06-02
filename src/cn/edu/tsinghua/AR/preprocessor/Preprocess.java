@@ -17,10 +17,10 @@ import java.util.List;
 import java.util.Vector;
 
 public class Preprocess {
-	public static void main(String[] args) {
+	public static void start(String filename) {
 		try {
 			System.out.print("Pre-treating csv...");
-			TextData data = new TextData(args[0]);
+			TextData data = new TextData(filename);
 			data.ParseTextDataFile();
 			System.out.println("Done!");
 			

@@ -31,11 +31,10 @@ class Pair implements Comparable<Pair> {
 public class Program {
 
 	public static void main(String[] args) {
-		String[] t = {"./data/raw-data.csv"};
-		Preprocess.main(t);
-		Corpus corpus = LdaEstimate.lda(0.25f, 200, "data/mult.dat", "data");
-		CTREstimate.ctr(corpus, 1.0, 0.01, 0.01, 100, 200, 200, 5551, 16980, "data/user-info-train.csv");
-		DoTest("data/user-info-test.csv");
+		Preprocess.start(args[0]);
+		Corpus corpus = LdaEstimate.lda(0.25f, 10, "data/mult.dat", "data");
+		CTREstimate.ctr(corpus, 1.0, 0.01, 0.01, 100, 200, 200, 5551, 16980, args[1]);
+		DoTest(args[2]);
 	}
 
 	private static void DoTest(String fileName) {
@@ -44,7 +43,7 @@ public class Program {
 			Matrix items = Matrix.read(new BufferedReader(new FileReader("data/final-V.dat")));
 			int lastu = -1;
 			BufferedReader br = new BufferedReader(new FileReader(fileName));
-			FileWriter fw = new FileWriter("data/result.txt");
+			FileWriter fw = new FileWriter("result.txt");
 			String row;
 			Vector<Pair> t = new Vector<Pair>();
 			while ((row = br.readLine()) != null) {
